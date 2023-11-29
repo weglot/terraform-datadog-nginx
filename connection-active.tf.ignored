@@ -1,0 +1,34 @@
+locals {
+  connection_active_filter = coalesce(
+    var.connection_active_filter_override,
+    var.filter_str
+  )
+}
+
+module "connection-active" {
+  source  = "kabisa/generic-monitor/datadog"
+  version = "1.0.0"
+
+  name             = "Nginx - Connection active"
+  query            = "avg(${var.connection_active_evaluation_period}):sum:nginx.net.connections{${local.connection_active_filter}} by {service} > ${var.connection_active_critical}"
+  alert_message    = "Nginx active connections ({{value}}) for ${var.service}  > {{threshold}} conns"
+  recovery_message = "Nginx active connections for ${var.service} has recovered"
+
+  # module level vars
+  env                  = var.env
+  service              = var.service
+  service_display_name = var.service_display_name
+  notification_channel = var.notification_channel
+  additional_tags      = var.additional_tags
+  name_prefix          = var.name_prefix
+  name_suffix          = var.name_suffix
+
+  # monitor level vars
+  enabled            = var.connection_active_enabled
+  alerting_enabled   = var.connection_active_alerting_enabled
+  # warning_threshold  = var.connection_active_warning
+  critical_threshold = var.connection_active_critical
+  priority           = var.connection_active_priority
+  docs               = var.connection_active_docs
+  note               = var.connection_active_note
+}

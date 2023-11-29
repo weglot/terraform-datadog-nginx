@@ -1,0 +1,5 @@
+# Local .terraform directories
+**/.terraform/*
+
+# Lock should be present in top level module
+.terraform.lock.hcl

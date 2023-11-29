@@ -1,0 +1,70 @@
+variable "connection_active_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "connection_active_warning" {
+  type    = number
+  default = null
+}
+
+variable "connection_active_critical" {
+  type    = number
+}
+
+variable "connection_active_evaluation_period" {
+  type    = string
+  default = "last_5m"
+}
+
+variable "connection_active_note" {
+  type    = string
+  default = ""
+}
+
+variable "connection_active_docs" {
+  type    = string
+  default = "Active connections ..."
+}
+
+variable "connection_active_filter_override" {
+  type    = string
+  default = ""
+}
+
+variable "connection_active_alerting_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "connection_active_no_data_timeframe" {
+  type    = number
+  default = null
+}
+
+variable "connection_active_notify_no_data" {
+  type    = bool
+  default = false
+}
+
+variable "connection_active_ok_threshold" {
+  type    = number
+  default = null
+}
+
+variable "connection_active_name_prefix" {
+  type    = string
+  default = null
+}
+
+variable "connection_active_name_suffix" {
+  type    = string
+  default = null
+}
+
+variable "connection_active_priority" {
+  description = "Number from 1 (high) to 5 (low)."
+
+  type    = number
+  default = 2
+}
