@@ -6,8 +6,8 @@ locals {
 }
 
 module "requests-rate" {
-  source  = "kabisa/generic-monitor/datadog"
-  version = "1.0.0"
+  source  = "weglot/generic-monitor/datadog"
+  version = "1.1.0"
 
   name  = "Nginx - Requests performed"
   query = "avg(${var.requests_rate_evaluation_period}):sum:nginx.net.request_per_s{${local.requests_rate_filter}} > ${var.requests_rate_critical}"
@@ -23,6 +23,7 @@ module "requests-rate" {
   additional_tags      = var.additional_tags
   name_prefix          = var.name_prefix
   name_suffix          = var.name_suffix
+  restricted_roles     = var.restricted_roles
 
   # monitor level vars
   enabled            = var.requests_rate_enabled

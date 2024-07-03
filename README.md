@@ -84,15 +84,16 @@ avg(last_30m):sum:nginx.net.request_per_s{tag:xxx} >
 
 ## Module Variables
 
-| variable             | default  | required | description  |
-|----------------------|----------|----------|--------------|
-| filter_str           |          | Yes      |              |
-| env                  |          | Yes      |              |
-| service              |          | Yes      |              |
-| service_display_name | None     | No       |              |
-| notification_channel |          | Yes      |              |
-| additional_tags      | []       | No       |              |
-| name_prefix          | ""       | No       |              |
-| name_suffix          | ""       | No       |              |
+| variable             | default  | required | description                                                                             |
+|----------------------|----------|----------|-----------------------------------------------------------------------------------------|
+| filter_str           |          | Yes      |                                                                                         |
+| env                  |          | Yes      |                                                                                         |
+| service              |          | Yes      |                                                                                         |
+| service_display_name | None     | No       |                                                                                         |
+| notification_channel |          | Yes      |                                                                                         |
+| additional_tags      | []       | No       |                                                                                         |
+| name_prefix          | ""       | No       |                                                                                         |
+| name_suffix          | ""       | No       |                                                                                         |
+| restricted_roles     | []       | No       | A list of unique role identifiers to define which roles are allowed to edit the monitor |
 
 

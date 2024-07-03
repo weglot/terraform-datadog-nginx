@@ -6,8 +6,8 @@ locals {
 }
 
 module "connection-active" {
-  source  = "kabisa/generic-monitor/datadog"
-  version = "1.0.0"
+  source  = "weglot/generic-monitor/datadog"
+  version = "1.1.0"
 
   name             = "Nginx - Connection active"
   query            = "avg(${var.connection_active_evaluation_period}):sum:nginx.net.connections{${local.connection_active_filter}} by {service} > ${var.connection_active_critical}"
@@ -22,6 +22,7 @@ module "connection-active" {
   additional_tags      = var.additional_tags
   name_prefix          = var.name_prefix
   name_suffix          = var.name_suffix
+  restricted_roles     = var.restricted_roles
 
   # monitor level vars
   enabled            = var.connection_active_enabled

@@ -6,8 +6,8 @@ locals {
 }
 
 module "connection-dropped" {
-  source  = "kabisa/generic-monitor/datadog"
-  version = "1.0.0"
+  source  = "weglot/generic-monitor/datadog"
+  version = "1.1.0"
 
   name             = "Nginx - Connection dropped"
   query            = "avg(${var.connection_dropped_evaluation_period}):max:nginx.net.conn_dropped_per_s{${local.connection_dropped_filter}} by {service} > ${var.connection_dropped_critical}"
@@ -22,6 +22,7 @@ module "connection-dropped" {
   additional_tags      = var.additional_tags
   name_prefix          = var.name_prefix
   name_suffix          = var.name_suffix
+  restricted_roles     = var.restricted_roles
 
   # monitor level vars
   enabled            = var.connection_dropped_enabled

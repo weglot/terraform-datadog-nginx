@@ -34,3 +34,9 @@ variable "name_suffix" {
   type    = string
   default = ""
 }
+
+variable "restricted_roles" {
+  description = "A list of unique role identifiers to define which roles are allowed to edit the monitor"
+  type        = list(string)
+  default     = []
+}
